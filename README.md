@@ -1,4 +1,5 @@
 # PI_Seminar
-Prepare a datascience introduction class for german psychology students.
+Contains content for a Data Science and Machine Learning Introduction Class for Psychology Students.
+The dataset used is the OSMI 2016 Survey https://osmihelp.org/research, covering Mental Health in the Tech industry.
 
-More information and content to follow.
+An NLP Introduction follows.
