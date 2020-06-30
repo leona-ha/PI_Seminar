@@ -1,10 +1,5 @@
 import pandas as pd
 
-def search_question(mydict, question):
-    for key, value in mydict.items():
-        if value == question:
-            return key
-
 def missing_values_table(df):
         # Total missing values
         mis_val = df.isnull().sum()
@@ -31,3 +26,20 @@ def missing_values_table(df):
 
         # Return the dataframe with missing information
         return mis_val_table_ren_columns
+
+def show_answers(df):
+    amount_answers = []
+    answer_type = []
+    column_list = df.columns.tolist()
+    for column in column_list:
+        amount_answers.append(df[column].nunique())
+        if df[column].nunique() < 7:
+            answer_type.append(df[column].unique())
+        else:
+            answer_type.append("Free Input")
+
+    answer_table = pd.DataFrame({"Item": column_list, "Amount of Answers": amount_answers, "Anwers": answer_type}, index=None)
+    answer_table = answer_table.set_index("Item")
+    answer_table = answer_table.sort_values("Amount of Answers", ascending = False)
+
+    return answer_table
